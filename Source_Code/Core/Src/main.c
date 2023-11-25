@@ -124,8 +124,6 @@ int main(void)
 	  if(timer1_flag == 1) {
 		  setTimer1(50);
 		  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
-		  ADC_value = HAL_ADC_GetValue(&hadc1);
-		  HAL_UART_Transmit(&huart2, (void *)str, sprintf(str, "%d\n", ADC_value), 1000);
 	  }
 
     /* USER CODE END WHILE */
