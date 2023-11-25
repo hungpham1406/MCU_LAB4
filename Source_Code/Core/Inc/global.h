@@ -15,5 +15,7 @@
 #include "string.h"
 #include "software_timer.h"
 
+extern uint8_t temp;
+extern uint32_t ADC_value;
 
 #endif /* INC_GLOBAL_H_ */
