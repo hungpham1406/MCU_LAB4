@@ -22,8 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "software_timer.h"
 #include "command_parser.h"
+#include "global.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,11 +41,9 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1;
 
 TIM_HandleTypeDef htim2;
 
-UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 
@@ -117,18 +115,20 @@ int main(void)
   HAL_ADC_Start(&hadc1);
   HAL_UART_Receive_IT(&huart2, &temp, 1);
   setTimer1(50);
+  setTimer2(50);
+  parser_status = START_PARSER;
 
   while (1)
   {
 	  if(timer1_flag == 1) {
 		  setTimer1(50);
-		  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+
 		  if(buffer_flag==1){
 			   command_parser_fsm();
 			   buffer_flag=0;
 		   }
 
-		   uart_communication_fsm();
+//		   uart_communication_fsm();
 	  }
 
     /* USER CODE END WHILE */

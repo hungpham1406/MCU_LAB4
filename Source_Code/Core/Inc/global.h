@@ -15,7 +15,19 @@
 #include "string.h"
 #include "software_timer.h"
 
+#define START_PARSER		1
+#define RECEIVE_COMMAND		2
+
+#define WAIT_COMMAND		10
+#define SEND_DATA			11
+
 extern uint8_t temp;
 extern uint32_t ADC_value;
+
+extern int parser_status;
+extern int uart_status;
+
+ADC_HandleTypeDef hadc1;
+UART_HandleTypeDef huart2;
 
 #endif /* INC_GLOBAL_H_ */

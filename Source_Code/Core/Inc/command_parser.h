@@ -12,10 +12,12 @@
 
 #include "global.h"
 
-extern uint8_t temp;
 extern uint8_t buffer [MAX_BUFFER_SIZE];
 extern uint8_t index_buffer;
 extern uint8_t buffer_flag;
 extern char str[MAX_BUFFER_SIZE];
+
+void clear_bufer();
+void command_parser_fsm();
 
 #endif /* INC_COMMAND_PARSER_H_ */
