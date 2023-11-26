@@ -21,13 +21,27 @@
 #define WAIT_COMMAND		10
 #define SEND_DATA			11
 
+# define MAX_BUFFER_SIZE 30
+
 extern uint8_t temp;
 extern uint32_t ADC_value;
+
+extern uint8_t buffer [MAX_BUFFER_SIZE];
+extern uint8_t index_buffer;
+extern uint8_t buffer_flag;
+extern char str[MAX_BUFFER_SIZE];
 
 extern int parser_status;
 extern int uart_status;
 
+extern int print_status;
+extern int send_data_status;
+
+
 ADC_HandleTypeDef hadc1;
 UART_HandleTypeDef huart2;
+
+void clear_buffer();
+void check_command();
 
 #endif /* INC_GLOBAL_H_ */

@@ -22,8 +22,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "command_parser.h"
 #include "global.h"
+#include "command_parser.h"
+#include "uart_fsm.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -117,18 +118,19 @@ int main(void)
   setTimer1(50);
   setTimer2(50);
   parser_status = START_PARSER;
+  uart_status = WAIT_COMMAND;
 
   while (1)
   {
 	  if(timer1_flag == 1) {
 		  setTimer1(50);
-
+		  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
 		  if(buffer_flag==1){
 			   command_parser_fsm();
 			   buffer_flag=0;
 		   }
 
-//		   uart_communication_fsm();
+		   uart_communication_fsm();
 	  }
 
     /* USER CODE END WHILE */
