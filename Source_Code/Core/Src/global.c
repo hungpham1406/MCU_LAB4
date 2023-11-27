@@ -21,6 +21,7 @@ int uart_status = 0;
 
 int print_status = 0;
 int send_data_status = 0;
+int check_command_status = 0;
 
 void clear_buffer() {
 	memset(buffer, 0, sizeof(buffer));

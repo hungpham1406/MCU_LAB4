@@ -116,7 +116,6 @@ int main(void)
   HAL_ADC_Start(&hadc1);
   HAL_UART_Receive_IT(&huart2, &temp, 1);
   setTimer1(50);
-  setTimer2(50);
   parser_status = START_PARSER;
   uart_status = WAIT_COMMAND;
 

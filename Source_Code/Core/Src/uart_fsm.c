@@ -10,6 +10,10 @@
 void uart_communication_fsm () {
 	switch(uart_status) {
 	case WAIT_COMMAND:
+		if(check_command_status == 1) {
+
+			check_command();
+		}
 		if(print_status == 1) {
 			uart_status = SEND_DATA;
 			setTimer2(50);
@@ -23,7 +27,7 @@ void uart_communication_fsm () {
 			setTimer2(50);
 			send_data_status = 1;
 			ADC_value = HAL_ADC_GetValue(&hadc1);
-			HAL_UART_Transmit (&huart2, (uint8_t *)str, sprintf(str , "!ADC=%lu#\r\n"
+			HAL_UART_Transmit(&huart2, (uint8_t *)str, sprintf(str , "!ADC=%lu#\r\n"
 						       ,ADC_value), 1000);
 		}
 		break;
