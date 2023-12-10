@@ -19,13 +19,14 @@ void command_parser_fsm() {
 
 	case RECEIVE_COMMAND:
 		if(temp == '#') {
-			check_command_status = 1;
+			check_command();
+//			check_command_status = 1;
 			parser_status = START_PARSER;
 		}
 		else if(temp == '!') {
 			clear_buffer();
 		}
-		else check_command_status = 0;
+//		else check_command_status = 0;
 		break;
 
 	default:

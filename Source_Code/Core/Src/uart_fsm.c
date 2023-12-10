@@ -10,10 +10,10 @@
 void uart_communication_fsm () {
 	switch(uart_status) {
 	case WAIT_COMMAND:
-		if(check_command_status == 1) {
-
-			check_command();
-		}
+//		if(check_command_status == 1) {
+//
+//			check_command();
+//		}
 		if(print_status == 1) {
 			uart_status = SEND_DATA;
 			setTimer2(50);

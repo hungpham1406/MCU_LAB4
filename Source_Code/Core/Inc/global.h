@@ -34,7 +34,7 @@ extern char str[MAX_BUFFER_SIZE];
 extern int parser_status;
 extern int uart_status;
 
-extern int check_command_status;
+//extern int check_command_status;
 
 extern int print_status;
 extern int send_data_status;
